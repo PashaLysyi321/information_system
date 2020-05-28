@@ -1,0 +1,33 @@
+{% block content %}
+
+<head>
+  <style type="text/css">
+    .bulb3 {
+      border-radius: 60px/60px; /* Создание эллипса */
+   }
+   .textt{
+      text-align:  center;
+  } 
+  </style>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+</head>
+
+<body>
+  <div class="w3-bar w3-black">
+    <a href="http://127.0.0.1:5000/login/main" class= "w3-wide w3-hover-aqua bulb3 w3-bar-item w3-button" target = "_self"><font size="10">Back</a>
+    <a href="http://127.0.0.1:5000/settings" class= "w3-wide w3-right w3-hover-aqua bulb3 w3-bar-item w3-button" target = "_self"><font size="10">Settings</a>
+  </div> 
+  <div class="w3-display-middle w3-xxlarge">
+    <h1 class ='textt'> Creating a task </h1><br>
+    <form action ="" method ="post">
+      <input type="text"  style="margin:1px" name="todolist_name" placeholder="| Task"/><br>
+      <input type="text"  style="margin:1px"name="description_of_todo"  placeholder="| Description" /><br>
+      <input type="text"  style="margin:1px"name="time_creating"  placeholder="| dd-mm-yy hh:mm:ss/" required /><br><br>
+      <div class ='textt'>
+        <input type="submit" class="w3-button w3-black bulb3 w3-hover-aqua" style="text-align:  center" name="enter" value="Enter" />
+      </div>
+      
+    </form>
+  </div>
+</body>
+{%endblock %}

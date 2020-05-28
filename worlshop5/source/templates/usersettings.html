@@ -1,0 +1,58 @@
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+
+<head>
+  <style type="text/css">
+    .bulb3 {
+      border-radius: 60px/60px; /* Создание эллипса */
+    }
+    .textt{
+      text-align:  center;
+    }
+    .mywidth{
+      width:50%;
+      margin: auto;
+    }
+  </style>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+</head>
+
+<body>
+
+  <div class="w3-bar w3-black">
+          <a href="http://127.0.0.1:5000/login/main" class= "w3-wide w3-hover-aqua bulb3 w3-bar-item w3-button" target = "_self"><font size="10">Back</a>
+          <a href="http://127.0.0.1:5000/settings" class= "w3-wide w3-right w3-hover-aqua bulb3 w3-bar-item w3-button" target = "_self"><font size="10">Settings</a>
+  </div><br>
+
+  {% if checker1 == 0  %}
+
+  <div class= "w3-wide textt">
+    <font size="515" color="black">Pie chart of the relationship of completed tasks for today to all tasks</font>
+  </div>
+  <div class="container row col-md-6 chart text mywidth" id="piee">
+    <script>
+      var graphs = {{plot1 | safe}};
+      Plotly.plot('piee',graphs,{});
+    </script>
+  </div>
+  {% endif %}
+  {% if checker1 == 1  %}
+    <div class= "w3-wide textt">
+      <font size="515" color="black">You dont have tasks for today, add something to see the pie plot</font>
+    </div><br>
+  {% endif %}
+
+  <div class= "w3-wide textt">
+    <font size="515" color="black">Bar char to see the percentage of completed assignments to the total over the last few days </font>
+  </div>
+  <div class="container row col-md-6 chart text mywidth" id="barr">
+    <script>
+      var graphs = {{plot2 | safe}};
+      Plotly.plot('barr',graphs,{});
+    </script>
+  </div>
+
+
+</body>

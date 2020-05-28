@@ -1,0 +1,79 @@
+{% block content %}
+
+<head>
+
+  <style type="text/css">
+    .bulb3 {
+      border-radius: 60px/60px; /* Создание эллипса */
+   }
+   .textt{
+      text-align:  center;
+  }
+  .topp{
+    margin-top: 40px;
+  }
+
+  table {
+  width:25%;
+  }
+  table, th, td {
+    border: 3px solid black;
+    border-collapse: collapse;
+    margin: auto;
+  }
+  th, td {
+    padding: 8px;
+    text-align: center;
+  }
+  th {
+    background-color: black;
+    color: white;
+  }
+  </style>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+</head>
+
+<body>
+  <div class="w3-bar w3-black">
+          <a href="http://127.0.0.1:5000/registration" class= "w3-wide w3-hover-aqua bulb3 w3-bar-item w3-button" target = "_self"><font size="35" color="white">Back</a>
+  </div>  
+  <div class= "w3-wide textt topp">
+    <font size="35" color="black">ERROR</font>
+  </div>
+  <div class= "w3-wide textt topp">
+  </div>
+  <table border="1">  
+    {% for key, value in result.items() %}
+    <tr>
+        <th>
+          {{key}}
+        </th>
+        <td>
+          {{value}}
+        </td>
+    </tr>
+    {% endfor %}  
+  </table>
+  {%endblock %}
+
+  <div class= "w3-wide textt">
+    <font size="515" color="black"><br>This data is NOT succesfully add to database</font>
+  </div>
+
+  <div class= "w3-wide textt">
+  {% if errors == 1  %}
+      <font size="515" color="black"><br>You age is <= 16</font>
+  {% endif %}
+  {% if errors == 2  %}
+      <font size="515" color="black"><br>Login length <= 5</font>
+  {% endif %}
+  {% if errors == 3  %}
+      <font size="515" color="black"><br>Login password <= 5</font>
+  {% endif %}
+  {% if errors == 4  %}
+      <font size="515" color="black"><br>Invalid data</font>
+  {% endif %}
+  </div>
+</body>
+
+

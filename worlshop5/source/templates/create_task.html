@@ -1,0 +1,24 @@
+{% block content %}
+<head>
+  <style type="text/css">
+    .bulb3 {
+      border-radius: 60px/60px; /* Создание эллипса */
+   }
+  </style>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+</head>
+
+<body bgcolor="white">
+  <div class="w3-display-middle">
+
+     <div>
+      <a href="http://127.0.0.1:5000/show" class= "w3-wide w3-hover-aqua w3-button bulb3 w3-jumbo w3-block" target = "_self">Tasks for today</a>
+    </div>  
+
+     <div>
+      <a href="http://127.0.0.1:5000/todo" class="w3-wide w3-hover-aqua w3-button bulb3 w3-jumbo w3-block" target = "_self">Create Task</a>
+    </div>
+  </div>  
+</body>
+
+{%endblock %}

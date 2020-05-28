@@ -1,0 +1,23 @@
+{% block content %}
+
+{% if error == 1  %}
+	<head>
+	  <meta http-equiv="refresh" content="1.5;http://127.0.0.1:5000/show">
+	  <style type="text/css">
+	  .textt{
+	    margin-top: 80px;
+	    text-align:  center;
+	  } 
+	  </style>
+	  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+	</head>
+
+	<body>
+		<div class= "w3-display-middle w3-wide textt">
+			<font size="515" color="black">Please <br> Enter <br>Correct<br>Data</font>
+		</div>
+	</body>
+{% endif %}
+
+
+{%endblock %}

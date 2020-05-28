@@ -1,0 +1,105 @@
+{% block content %}
+<head>
+  <style type="text/css">
+    .bulb3 {
+      border-radius: 60px/60px; /* Создание эллипса */
+    }
+    .textt{
+      text-align:  center;
+    }
+    .topp{
+      margin-top: 40px;
+    }
+
+    table {
+      width:50%;
+    }
+    table, th, td {
+      border: 3px solid black;
+      border-collapse: collapse;
+      margin: auto;
+    }
+    th, td {
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: black;
+      color: white;
+    }
+    h4:before {
+      counter-increment: heading; /* Указываем идентификатор счетчика */
+      content: counter(heading); /* Выводим текст перед содержимым тега <h2> */
+    }
+    body {
+      counter-reset: heading; /* Инициируем счетчик */
+    }
+  </style>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+</head>
+
+<body>
+  <div class="w3-bar w3-black">
+    <a href="http://127.0.0.1:5000/login/main" class= "w3-wide w3-hover-aqua bulb3 w3-bar-item w3-button" target = "_self"><font size="10">Back</a>
+    <a href="http://127.0.0.1:5000/settings" class= "w3-wide w3-right w3-hover-aqua bulb3 w3-bar-item w3-button" target = "_self"><font size="10">Settings</a>
+  </div>   
+  <div class= "w3-wide textt topp">
+    <font size="515" color="black">Your schedule for today</font>
+  </div><br> 
+  <table border="1">
+    <tr>
+      <th>№</th>
+      <th>Time</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Done?</th>
+    </tr>
+
+    {% for value in result %}
+      <tr>
+          <th>
+            <h4> </h4>
+          </th>
+          <th>
+            {{value[3]}}
+          </th>
+          <th>
+            {{value[1]}}
+          </th>
+          <th>
+            {{value[2]}}
+          </th>
+          <th>
+            {{value[4]}}
+          </th>
+
+      </tr>
+    {% endfor %} 
+  </table>
+  {%endblock %}
+  <br>
+
+{% if check != 0  %}
+  <div class="w3-xxlarge textt"></div>
+    <h1 class ='textt'> Write № that you want mark as done </h1>
+        <form action ="" method ="post">
+          <div class ='textt'> 
+            <input type="number" name="my_number" style="text-align:  center" placeholder="| number" required /><br>
+          </div>
+          <div class ='textt'>
+            <input type="submit" class="w3-button w3-black bulb3 w3-hover-aqua" style="text-align:  center" name="enter" value="Submit" />
+          </div>
+          
+        </form>
+  </div>
+{% endif %}
+
+{% if check == 0  %}
+  <div class= "w3-wide textt">
+    <font size="515" color="black">Wow u have already done all your tasks</font>
+  </div><br> 
+{% endif %}
+
+</body>
+
+
